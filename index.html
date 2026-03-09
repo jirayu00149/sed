@@ -3,38 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Economy Quiz | Nawat</title>
+    <title>Engineering Economy Final Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="quiz-container">
         <header>
             <h1>Engineering Economy Quiz</h1>
-            <div class="progress-container">
+            <div class="progress-bar-container">
                 <div id="progress-bar"></div>
             </div>
-            <p id="question-counter">ข้อที่ 1 / 50</p>
+            <div class="stats">
+                <span id="question-number">ข้อที่ 1 / 50</span>
+                <span id="current-score">คะแนน: 0</span>
+            </div>
         </header>
 
-        <main id="quiz-content">
-            <div id="question-text" class="question-text">กำลังโหลดคำถาม...</div>
-            <div id="options-container" class="options-grid"></div>
-            <div id="explanation" class="explanation-box"></div>
+        <main id="quiz-body">
+            <div id="question-text" class="question">กำลังโหลดคำถาม...</div>
+            <div id="options-list" class="options"></div>
+            <div id="feedback" class="feedback hidden">
+                <div id="feedback-message"></div>
+                <div id="explanation-text" class="explanation"></div>
+            </div>
         </main>
 
-        <footer class="controls">
-            <button id="next-btn" onclick="handleNext()">ถัดไป</button>
+        <footer>
+            <button id="next-btn" class="btn hidden" onclick="nextQuestion()">ข้อถัดไป</button>
         </footer>
-
-        <section id="result-screen" class="result-screen hidden">
-            <h2>สรุปผลคะแนน</h2>
-            <div class="score-circle">
-                <span id="final-score">0</span>/50
-            </div>
-            <p id="evaluation-msg"></p>
-            <button onclick="location.reload()">ทำใหม่อีกครั้ง</button>
-        </section>
     </div>
+
+    <div id="result-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>สรุปผลการทดสอบ</h2>
+            <div class="final-score-display">
+                <span id="final-score">0</span> / 50
+            </div>
+            <p id="evaluation"></p>
+            <button class="btn" onclick="location.reload()">เริ่มทำใหม่</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
